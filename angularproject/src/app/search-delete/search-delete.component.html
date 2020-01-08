@@ -1,0 +1,71 @@
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+
+<div class="container">
+    <div class="row">
+               <div id="custom-search-input">
+                                <div class="input-group col-md-12" style="text-align: center">
+                                    <input type="text" class="search-query form-control" placeholder="Search With id Address"  name="id" [(ngModel)]="this.id"/>
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-danger" type="button" (click)="getBankById(id)">
+                                            <span class=" glyphicon glyphicon-search"></span>
+                                        </button>
+                                    </span>
+                                </div>
+                                <table class="table table-striped custab">
+                                    <thead>
+                                        <tr>
+                                            <th>Bank Id</th>
+                                            <th>BankName</th>
+                                            <th>ifsc code</th>
+                                            <th>Bank Address</th>
+                                            <th>Bank Type</th>
+                                            <th>Country</th>    
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr >
+                                            <td>{{bank1.id}}</td>
+                                            <td>{{bank1.name}}</td>
+                                            <td>{{bank1.ifsccode}}</td>
+                                            <td>{{bank1.bankaddress}}</td>
+                                            <td>{{bank1.banktype}}</td>
+                                            <td>{{bank1.country}}</td>
+                                            
+                                        </tr>
+                                    </tbody>
+                                    </table>
+                            </div>
+    </div>
+    </div>
+<div class="container">
+    <div class="row col-md-8 col-md-offset-2 custyle">
+    <table class="table table-striped custab">
+    <thead>
+        <tr>
+            <th>Bank_Id</th>
+            <th>Bank Name</th>
+            <th>ifsc code</th>
+            <th>Bank Address</th>
+            <th>Bank Type</th>
+            <th>Country</th>
+            <th>Delete_Bank</th>            
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let bank of banks">
+            <td>{{bank.id}}</td>
+            <td>{{bank.name}}</td>
+            <td>{{bank.ifsccode}}</td>
+            <td>{{bank.bankaddress}}</td>
+            <td>{{bank.banktype}}</td>
+            <td>{{bank.country}}</td>
+                      <td class="text-center"><button class="btn btn-danger btn-xs" (click)="deleteBank(bank.id)"><span class="glyphicon glyphicon-remove"></span> Delete</button></td>
+          </tr>
+    </tbody>
+    </table>
+    </div>
+</div>

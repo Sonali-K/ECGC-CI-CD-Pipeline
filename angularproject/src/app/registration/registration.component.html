@@ -1,0 +1,63 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<div style="text-align: center">
+    <h1>{{message}}</h1>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <form>
+                <fieldset>
+                    <legend class="text-center">Valid information is required to register. <span class="req"><small>
+                                required *</small></span></legend>
+
+                    <div class="form-group">
+                        <label for="bankid"><span class="req">* </span> Id: </label>
+                        <input class="form-control" type="text" [(ngModel)]="bank.id" name="id" id="txt" required
+                            placeholder="Enter bank ID" />
+                        <div id="errFirst"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="Name"><span class="req">* </span>Bank Name:  </label>
+                        <input required type="text" [(ngModel)]="bank.name" name="name" id="name"
+                            class="form-control phone" maxlength="28" placeholder="Enter Bank name..." />
+                    </div>
+                    <div class="form-group">
+                        <label for="ifsccode"><span class="req">* </span> IFSC Code: </label>
+                        <input class="form-control" type="text" [(ngModel)]="bank.ifsccode" name="ifsccode" id="txt" required
+                            placeholder="Enter valid ifsc code" />
+                        <div id="errFirst"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="bankaddress"><span class="req">* </span> Bank Address: </label>
+                        <input class="form-control" type="text" [(ngModel)]="bank.bankaddress" name="bankaddress" id="txt" required
+                            placeholder="Enter bank address" />
+                        <div id="errFirst"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="banktype"><span class="req">* </span> Bank Type: </label>
+                        <input class="form-control" type="text" [(ngModel)]="bank.banktype" name="banktype" id="txt" required
+                            placeholder="Enter bank type address" />
+                        <div id="errFirst"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="country"><span class="req">* </span> Bank Branch Country: </label>
+                        <input class="form-control" type="text" [(ngModel)]="bank.country" name="country" id="txt" required
+                            placeholder="Enter bank branch country" />
+                        <div id="errFirst"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <input class="btn btn-success" type="submit" name="submit_reg" value="Register"
+                            (click)="registerNow()">
+                    </div>
+                </fieldset>
+            </form><!-- ends register form -->
+            <!-- second for to fiter user-->
+        </div><!-- ends col-6 -->
+
+    </div>
+</div>
