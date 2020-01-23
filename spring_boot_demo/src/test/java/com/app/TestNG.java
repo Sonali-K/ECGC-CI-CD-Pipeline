@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -27,7 +28,17 @@ public class TestNG {
 		PropertiesFile.getProperties();
 		if(browserName.equalsIgnoreCase("chrome")) {
 			System.setProperty("webdriver.chrome.driver","/home/cdac-kharghar2/STS-Workspace-N/spring_boot_demo/drivers/geckodriver/chromedriver");
-			driver = new ChromeDriver();
+			//driver = new ChromeDriver();
+			
+			ChromeOptions options = new ChromeOptions();
+			options.addArguments("start-maximized"); // open Browser in maximized mode
+			options.addArguments("disable-infobars"); // disabling infobars
+			options.addArguments("--disable-extensions"); // disabling extensions
+			options.addArguments("--disable-gpu"); // applicable to windows os only
+			options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
+			options.addArguments("--no-sandbox"); // Bypass OS security model
+		  driver = new ChromeDriver(options);
+			
 		}
 		logger.info("Browser started");
 		
