@@ -26,11 +26,7 @@ public class TestNG {
 		String projectPath = System.getProperty("user.dir");
 		PropertiesFile.getProperties();
 		
-		if(browserName.equalsIgnoreCase("chrome")) {
-			System.setProperty("webdriver.chrome.driver","/home/cdac-kharghar2/STS-Workspace-N/spring_boot_demo/drivers/geckodriver/chromedriver");
-			driver = new ChromeDriver();
-		}
-		else if(browserName.equalsIgnoreCase("firefox")) {
+		 if(browserName.equalsIgnoreCase("firefox")) {
 			System.setProperty("webdriver.gecko.driver", projectPath+"/drivers/geckodriver/geckodriver");
 			driver = new FirefoxDriver();
 		}
@@ -62,7 +58,7 @@ public class TestNG {
 	public void tearDownTest() {
 		
 		//close browser
-				//driver.close();
+				driver.close();
 				//driver.quit();
 				System.out.println("Test Completed Successfully");
 				PropertiesFile.setProperties();
