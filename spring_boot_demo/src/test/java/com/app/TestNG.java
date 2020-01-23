@@ -27,7 +27,7 @@ public class TestNG {
 		PropertiesFile.getProperties();
 		
 		 if(browserName.equalsIgnoreCase("firefox")) {
-			System.setProperty("webdriver.gecko.driver", projectPath+"/drivers/geckodriver/geckodriver");
+			System.setProperty("webdriver.gecko.driver", "/home/cdac-kharghar2/STS-Workspace-N/spring_boot_demo/drivers/geckodriver/geckodriver");
 			driver = new FirefoxDriver();
 		}
 		
