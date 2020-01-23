@@ -27,7 +27,7 @@ public class TestNG {
 		PropertiesFile.getProperties();
 		
 		if(browserName.equalsIgnoreCase("chrome")) {
-			System.setProperty("webdriver.chrome.driver", projectPath+"/drivers/geckodriver/chromedriver");
+			System.setProperty("webdriver.chrome.driver","/home/cdac-kharghar2/STS-Workspace-N/spring_boot_demo/drivers/geckodriver/chromedriver");
 			driver = new ChromeDriver();
 		}
 		else if(browserName.equalsIgnoreCase("firefox")) {
