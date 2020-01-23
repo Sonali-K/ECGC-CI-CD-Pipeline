@@ -25,13 +25,10 @@ public class TestNG {
 	public void setUpTest() {
 		String projectPath = System.getProperty("user.dir");
 		PropertiesFile.getProperties();
-		
-		 if(browserName.equalsIgnoreCase("firefox")) {
-			System.setProperty("webdriver.gecko.driver", "/home/cdac-kharghar2/STS-Workspace-N/spring_boot_demo/drivers/geckodriver/geckodriver");
-			driver = new FirefoxDriver();
+		if(browserName.equalsIgnoreCase("chrome")) {
+			System.setProperty("webdriver.chrome.driver","/home/cdac-kharghar2/STS-Workspace-N/spring_boot_demo/drivers/geckodriver/chromedriver");
+			driver = new ChromeDriver();
 		}
-		
-		
 		logger.info("Browser started");
 		
 	}
