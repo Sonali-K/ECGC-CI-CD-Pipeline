@@ -62,7 +62,7 @@ public class TestNG {
 	public void tearDownTest() {
 		
 		//close browser
-				driver.close();
+				//driver.close();
 				//driver.quit();
 				System.out.println("Test Completed Successfully");
 				PropertiesFile.setProperties();
