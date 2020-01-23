@@ -26,7 +26,11 @@ public class TestNG {
 		String projectPath = System.getProperty("user.dir");
 		PropertiesFile.getProperties();
 		
-		 if(browserName.equalsIgnoreCase("firefox")) {
+		if(browserName.equalsIgnoreCase("chrome")) {
+			System.setProperty("webdriver.chrome.driver", projectPath+"/drivers/geckodriver/chromedriver");
+			driver = new ChromeDriver();
+		}
+		else if(browserName.equalsIgnoreCase("firefox")) {
 			System.setProperty("webdriver.gecko.driver", projectPath+"/drivers/geckodriver/geckodriver");
 			driver = new FirefoxDriver();
 		}
