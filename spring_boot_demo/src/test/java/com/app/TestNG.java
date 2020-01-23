@@ -44,7 +44,7 @@ public class TestNG {
 	public void googleSearch() {
 			
 		//goto google.com
-		driver.get("http://localhost:4200/search");
+		driver.get("http://localhost:4200/");
 		logger.info("Navigated to webapplication UI");
 		
 		//enter text in search textbox
