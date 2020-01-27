@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -51,7 +52,8 @@ public class TestNG {
 		//goto google.com
 		driver.get("http://localhost:4200/");
 		logger.info("Navigated to webapplication UI");
-		
+	     // driver.findElement(By.id("name")).sendKeys("pune");
+	    // driver.findElement(By.id("Register")).click();
 		//enter text in search textbox
 		//driver.findElement(By.name("q")).sendKeys("Automation Step by Step");
 		

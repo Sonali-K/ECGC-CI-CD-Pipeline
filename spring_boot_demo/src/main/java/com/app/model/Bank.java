@@ -14,6 +14,8 @@ public class Bank {
 	private String bankaddress;
 	private String banktype;
 	private String country;
+	private String city;
+
 	
 
 	public Bank() {
