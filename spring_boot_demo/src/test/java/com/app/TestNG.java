@@ -31,7 +31,7 @@ public class TestNG {
 			//driver = new ChromeDriver();
 			HashMap<String, Object> chromePrefs = new HashMap<>();
 			chromePrefs.put("profile.default_content_settings.popups", 0);
-		//	chromePrefs.put("download.default_directory", downloadFilepath);
+		  //chromePrefs.put("download.default_directory", downloadFilepath);
 			ChromeOptions options = new ChromeOptions();
 			//options.setExperimentalOption("prefs", chromePrefs);
 			options.addArguments("--no-sandbox");
@@ -40,7 +40,6 @@ public class TestNG {
 			//options.addArguments("--window-size=1920x1080"); //should be enabled for Jenkins
 			driver = new ChromeDriver(options);
 
-			
 		}
 		logger.info("Browser started");
 		
