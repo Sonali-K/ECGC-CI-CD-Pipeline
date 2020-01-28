@@ -1,9 +1,0 @@
----
-- hosts: 127.0.0.1
-  become: true
-  tasks:
-    - name: copy war onto tomcat servers
-      copy:
-        dest: /home/cdac-kharghar2/Downloads/apache-tomcat-8.5.45/webapps
-        src: /var/lib/jenkins/workspace/packageECGC-1/spring_boot_demo/target/spring_boot_demo-0.0.1-SNAPSHOT.war
-        
