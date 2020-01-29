@@ -6,7 +6,7 @@ node {
    }
    
    stage('Sonar Publish'){
-	   withCredentials([string(credentialsId: 'sonarqube', variable: 'sonarToken')]) {
+	   withCredentials([string(credentialsId: 'SonarQube', variable: 'sonarToken')]) {
         def sonarToken = "sonar.login=${b011d57fcf07add059b6c731ed68022160a85b5b}"
         sh "mvn -https://github.com/Sonali-K/ECGC-CI-CD-Angular-Spring-Boot-1/blob/master/spring_boot_demo/pom.xml sonar:sonar -D${sonarUrl}  -D${sonarToken}"
 	 }
