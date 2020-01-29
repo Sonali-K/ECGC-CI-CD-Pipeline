@@ -2,20 +2,20 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="3026" started-at="2020-01-29T04:31:53Z" finished-at="2020-01-29T04:31:56Z">
+  <suite name="Default suite" duration-ms="2311" started-at="2020-01-29T04:42:42Z" finished-at="2020-01-29T04:42:45Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="3026" started-at="2020-01-29T04:31:53Z" finished-at="2020-01-29T04:31:56Z">
+    <test name="Default test" duration-ms="2311" started-at="2020-01-29T04:42:42Z" finished-at="2020-01-29T04:42:45Z">
       <class name="com.app.TestNG">
-        <test-method status="PASS" signature="setUpTest()[pri:0, instance:com.app.TestNG@7cbd213e]" name="setUpTest" is-config="true" duration-ms="868" started-at="2020-01-29T10:01:53Z" finished-at="2020-01-29T10:01:54Z">
+        <test-method status="PASS" signature="setUpTest()[pri:0, instance:com.app.TestNG@7cbd213e]" name="setUpTest" is-config="true" duration-ms="664" started-at="2020-01-29T10:12:42Z" finished-at="2020-01-29T10:12:43Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpTest -->
-        <test-method status="PASS" signature="googleSearch()[pri:0, instance:com.app.TestNG@7cbd213e]" name="googleSearch" duration-ms="1982" started-at="2020-01-29T10:01:54Z" finished-at="2020-01-29T10:01:56Z">
+        <test-method status="PASS" signature="googleSearch()[pri:0, instance:com.app.TestNG@7cbd213e]" name="googleSearch" duration-ms="1513" started-at="2020-01-29T10:12:43Z" finished-at="2020-01-29T10:12:44Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- googleSearch -->
-        <test-method status="PASS" signature="tearDownTest()[pri:0, instance:com.app.TestNG@7cbd213e]" name="tearDownTest" is-config="true" duration-ms="162" started-at="2020-01-29T10:01:56Z" finished-at="2020-01-29T10:01:56Z">
+        <test-method status="PASS" signature="tearDownTest()[pri:0, instance:com.app.TestNG@7cbd213e]" name="tearDownTest" is-config="true" duration-ms="121" started-at="2020-01-29T10:12:44Z" finished-at="2020-01-29T10:12:45Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownTest -->
