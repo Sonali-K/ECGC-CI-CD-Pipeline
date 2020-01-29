@@ -11,7 +11,7 @@ pipeline {
         scannerHome = tool 'SonarQubeScanner'
     }    steps {
         withSonarQubeEnv('SonarQube') {
-            sh "${/home/cdac-kharghar2/Downloads/Softwares/SONAR/sonarqube-8.1}/bin/sonar-scanner"
+            sh "${mvn -https://github.com/Sonali-K/ECGC-CI-CD-Angular-Spring-Boot-1/blob/master/spring_boot_demo/pom.xml clean install sonar:sonar}/bin/sonar-scanner"
         }        timeout(time: 10, unit: 'MINUTES') {
             waitForQualityGate abortPipeline: true
         }
