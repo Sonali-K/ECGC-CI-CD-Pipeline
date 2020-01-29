@@ -11,7 +11,7 @@ pipeline {
         scannerHome = tool 'SonarQubeScanner'
     }    steps {
         withSonarQubeEnv('SonarQube') {
-            sh "${/home/cdac-kharghar2/Downloads/Softwares/SONAR/sonarqube-8.1.0.31237}/bin/sonar-scanner"
+            sh "${/home/cdac-kharghar2/Downloads/Softwares/SONAR/sonarqube-8.1}/bin/sonar-scanner"
         }        timeout(time: 10, unit: 'MINUTES') {
             waitForQualityGate abortPipeline: true
         }
