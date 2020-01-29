@@ -6,8 +6,8 @@ pipeline {
                 sh "mvn -https://github.com/Sonali-K/ECGC-CI-CD-Angular-Spring-Boot-1/blob/master/spring_boot_demo/pom.xml compile"
             }
         }
-        stage("build & SonarQube analysis") {
-          node {
+        stage('build & SonarQube analysis') {
+           steps {
               withSonarQubeEnv('c62b330d-9cc8-4cc7-ade4-faf3d1a33674') {
                  sh 'mvn -https://github.com/Sonali-K/ECGC-CI-CD-Angular-Spring-Boot-1/blob/master/spring_boot_demo/pom.xml clean install sonar:sonar'
               }
