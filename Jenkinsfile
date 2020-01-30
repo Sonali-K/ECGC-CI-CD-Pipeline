@@ -1,15 +1,26 @@
-node {
-   // This is to demo github action	
-   def sonarUrl = 'sonar.host.url=http://localhost:9000/projects'
-   stage('SCM Checkout'){
-                   sh "mvn -https://github.com/Sonali-K/ECGC-CI-CD-Angular-Spring-Boot-1/blob/master/spring_boot_demo/pom.xml compile"
-   }
-   
-   stage('Sonar Publish'){
-	   withCredentials([string(credentialsId: 'c62b330d-9cc8-4cc7-ade4-faf3d1a33674', variable: 'sonarToken')]) {
-        def sonarToken = "sonar.login='b011d57fcf07add059b6c731ed68022160a85b5b'"
-        sh "mvn -https://github.com/Sonali-K/ECGC-CI-CD-Angular-Spring-Boot-1/blob/master/spring_boot_demo/pom.xml sonar:sonar -D${sonarUrl}  -D${sonarToken}"
-	 }
-      
-   }
+pipeline {
+    agent any
+    stages { 
+        stage('Setup') {
+            steps {
+                script {
+                    startZap(host: 127.0.0.1, port: 8080, timeout:500, zapHome: "/home/cdac-kharghar2/Downloads/Softwares/ZAP/ZAP_2.7.0", sessionPath:"/somewhere/session.session", allowedHosts:['github.com']) // Start ZAP at /opt/zaproxy/zap.sh, allowing scans on github.com
+                }
+            }
+        }
+        stage('Build & Test') {
+            steps {
+                script {
+                    sh "mvn verify -Dhttp.proxyHost=127.0.0.1 -Dhttp.proxyPort=8080 -Dhttps.proxyHost=127.0.0.1 -Dhttps.proxyPort=8080" // Proxy tests through ZAP
+                }
+            }
+        }
+    }
+    post {
+        always {
+            script {
+                archiveZap(failAllAlerts: 1, failHighAlerts: 0, failMediumAlerts: 0, failLowAlerts: 0, falsePositivesFilePath: "zapFalsePositives.json")
+            }
+        }
+    }
 }
