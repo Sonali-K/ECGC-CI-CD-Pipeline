@@ -6,15 +6,12 @@ pipeline {
             }
     
     stages { 
-        stage('Setup') {
+        stage('Ansible') {
             steps {
                 script {
-                   sh "mvn -https://github.com/Sonali-K/ECGC-CI-CD-Angular-Spring-Boot-1/blob/master/spring_boot_demo/pom.xml clean test"
+                   sh "sudo ansible-playbook tomcat.yml"
                     
-                }
-               step([$class : 'Publisher', reportFilenamePattern : 'spring_boot_demo/test-output/testng-results.xml'])
-                  
-               
+                }   
             }
         }
        
