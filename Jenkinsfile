@@ -1,13 +1,6 @@
-pipeline {
-    agent any
-     options
-            { 
-              timestamps()  
-            }
-    
-    stages { 
-
-           def sonarUrl = 'sonar.host.url=http://localhost:9000/projects'
+node {
+   // This is to demo github action	
+   def sonarUrl = 'sonar.host.url=http://localhost:9000/projects'
    stage('SCM Checkout'){
                    sh "mvn -https://github.com/Sonali-K/ECGC-CI-CD-Angular-Spring-Boot-1/blob/master/spring_boot_demo/pom.xml compile"
    }
@@ -19,8 +12,8 @@ pipeline {
 	 }
       
    }
-  stages { 
-        stage('Setup') {
+
+   stage('Setup') {
             steps {
                 script {
                    sh "mvn -https://github.com/Sonali-K/ECGC-CI-CD-Angular-Spring-Boot-1/blob/master/spring_boot_demo/pom.xml clean test"
@@ -31,10 +24,9 @@ pipeline {
                
             }
         }
-       
-    }
-           
-        stage('Ansible') {
+
+    
+   stage('Ansible') {
             steps {
                 script {
                    sh 'ansible-playbook tomcat.yml'
@@ -42,10 +34,6 @@ pipeline {
                 }   
             }
         }
-       
-    }
+    
+
 }
-
-
-
-
