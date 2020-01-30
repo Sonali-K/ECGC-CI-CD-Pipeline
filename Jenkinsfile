@@ -5,6 +5,7 @@ node {
     
    stage('SCM Checkout'){
                          sh "mvn -https://github.com/Sonali-K/ECGC-CI-CD-Angular-Spring-Boot-1/blob/master/spring_boot_demo/pom.xml compile"
+                         echo "Running Stage First"
                         }
    
    stage('SonarQube Analysis'){
