@@ -9,7 +9,7 @@ pipeline {
         stage('Ansible') {
             steps {
                 script {
-                   sh "sudo ansible-playbook tomcat.yml"
+                   sh "ansible-playbook tomcat.yml"
                     
                 }   
             }
