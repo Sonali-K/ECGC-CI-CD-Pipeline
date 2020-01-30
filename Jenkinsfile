@@ -27,12 +27,12 @@ node {
 
     
    stage('Ansible') {
-            step{
+           
                 script {
                    sh 'ansible-playbook tomcat.yml'
                     
                 }   
-            }
+            
         }
     
 
