@@ -2,6 +2,10 @@ node {
 
    // This is to demo github action	
    def sonarUrl = 'sonar.host.url=http://localhost:9000/projects'
+    options
+            { 
+              timestamps()  
+            }
    stage('SCM Checkout'){
                          sh "mvn -https://github.com/Sonali-K/ECGC-CI-CD-Angular-Spring-Boot-1/blob/master/spring_boot_demo/pom.xml compile"
                         }
