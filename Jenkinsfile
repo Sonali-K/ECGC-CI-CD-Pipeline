@@ -2,7 +2,7 @@ node {
 
    // This is to demo github action	
    def sonarUrl = 'sonar.host.url=http://localhost:9000/projects'
-    options
+    option
             { 
               timestamps()  
             }
