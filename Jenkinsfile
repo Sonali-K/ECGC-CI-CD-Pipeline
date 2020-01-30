@@ -16,7 +16,7 @@ node {
                       def sonarToken = "sonar.login='b011d57fcf07add059b6c731ed68022160a85b5b'"
                       sh "mvn -https://github.com/Sonali-K/ECGC-CI-CD-Angular-Spring-Boot-1/blob/master/spring_boot_demo/pom.xml sonar:sonar -D${sonarUrl}  -D${sonarToken}"
                       echo 'SonarQube Analysis'
-                      input "This is a question?"
+                      input "Are you sure?"
 	             }
       
                     }
@@ -26,7 +26,7 @@ node {
                   script {
                         sh "mvn -https://github.com/Sonali-K/ECGC-CI-CD-Angular-Spring-Boot-1/blob/master/spring_boot_demo/pom.xml clean test"
                          echo 'TestNG Report'
-                         input "This is a question?"
+                         input "Are you sure?"
                           }
                    step([$class : 'Publisher', reportFilenamePattern : 'spring_boot_demo/test-output/testng-results.xml'])   
                          }
