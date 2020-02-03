@@ -3,7 +3,7 @@ pipeline {
     stages { 
         stage('Setup') {
             steps {
-               step{ 
+                script{ 
                   zapHome: "/home/cdac-kharghar2/Downloads/Softwares/ZAP/ZAP_2.7.0/zap.sh"
                  }
                 
