@@ -16,9 +16,9 @@ pipeline {
             }
         }
     }
-    
+     stage('check') {
             steps {
                 archiveZap(failAllAlerts: 1, failHighAlerts: 0, failMediumAlerts: 0, failLowAlerts: 0, falsePositivesFilePath: "zapFalsePositives.json")
-            
+        }    
     }
 }
