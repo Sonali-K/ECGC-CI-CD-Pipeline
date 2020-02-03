@@ -4,7 +4,7 @@ pipeline {
         stage('Setup') {
             steps {
                 script {
-                    startZap(host: 10.212, port: 8080, timeout:500, zapHome: "/home/cdac-kharghar2/Downloads/Softwares/ZAP/ZAP_2.7.0/zap.sh") // Start ZAP at /opt/zaproxy/zap.sh, allowing scans on github.com
+                    start(host: 10.212, port: 8080, timeout:500, zapHome: "/home/cdac-kharghar2/Downloads/Softwares/ZAP/ZAP_2.7.0/zap.sh") // Start ZAP at /opt/zaproxy/zap.sh, allowing scans on github.com
                 }
             }
         }
@@ -16,11 +16,7 @@ pipeline {
             }
         }
 
- stage('check') {
-            steps {
-                archiveZap(failAllAlerts: 1, failHighAlerts: 0, failMediumAlerts: 0, failLowAlerts: 0, falsePositivesFilePath: "zapFalsePositives.json")
-        }    
-    }
+ 
     }
     
 }
