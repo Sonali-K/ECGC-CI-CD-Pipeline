@@ -1,20 +1,20 @@
 pipeline {
-  agent any
-  stages {
-        stage('DAST') {
-          parallel {
-            stage('OWASP ZAP') {
-              agent any
-              steps {
-                                   
-                  sh '''
-                 export ARCHERY_HOST=http://10.212.8.121:8000
-                     /home/cdac-kharghar2/Downloads/Softwares/ZAP/ZAP_2.7.0/zap.sh
-                  '''
-              
+    agent any
+    stages { 
+        stage('Setup') {
+            steps {
+                script {
+                    sh "mvn verify zapHome: "/home/cdac-kharghar2/Downloads/Softwares/ZAP/ZAP_2.7.0/zap.sh") // Start ZAP at /opt/zaproxy/zap.sh, allowing scans on github.com
+                }
             }
-          }
+        }
+        stage('Build & Test') {
+            steps {
+                script {
+                    sh "mvn verify -Dhttp.proxyHost=10.212.8.121 -Dhttp.proxyPort=8080 -Dhttps.proxyHost=10.212.8.121 -Dhttps.proxyPort=8080" // Proxy tests through ZAP
+                }
+            }
         }
     }
-}
+    
 }
