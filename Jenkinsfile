@@ -4,7 +4,7 @@ pipeline {
         stage('Setup') {
             steps {
                 script {
-                    sh "mvn verify zapHome: "/home/cdac-kharghar2/Downloads/Softwares/ZAP/ZAP_2.7.0/zap.sh") // Start ZAP at /opt/zaproxy/zap.sh, allowing scans on github.com
+                    sh "mvn verify zapHome: "/home/cdac-kharghar2/Downloads/Softwares/ZAP/ZAP_2.7.0/zap.sh")" // Start ZAP at /opt/zaproxy/zap.sh, allowing scans on github.com
                 }
             }
         }
