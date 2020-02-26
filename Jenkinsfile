@@ -35,6 +35,7 @@ stage('SonarQube Analysis'){
            
                  script {
                    sh 'ansible-playbook tomcat.yml'
+                   input "Are you sure?"
                      }   
                   }
    
@@ -43,6 +44,7 @@ stage('SonarQube Analysis'){
    stage('Build Docker Image'){
   git credentialsId: 'eb857953-4899-4983-928e-450aa25606d5', url: 'http://10.212.0.206:81/Sonali/ECGC-CI-CD-Angular-Spring-Boot-1'
      sh 'docker build -t sdkanse/spring-boot-demo.war:2.0SNAPSHOT .'
+     input "Are you sure?"
    }
       stage('Push Docker Image'){
     withCredentials([string(credentialsId: 'DockerHubID', variable: 'DockerHub')]) {
