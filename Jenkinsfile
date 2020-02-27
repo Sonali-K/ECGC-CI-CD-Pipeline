@@ -34,6 +34,7 @@ stage('SonarQube Analysis'){
               stage('Ansible') {
            
                  script {
+            git credentialsId: 'eb857953-4899-4983-928e-450aa25606d5', url: 'http://10.212.0.206:81/Sonali/ECGC-CI-CD-Angular-Spring-Boot-1'
                    sh 'ansible-playbook tomcat.yml'
                    input "Are you sure?"
                      }   
