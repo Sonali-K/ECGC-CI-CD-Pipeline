@@ -27,6 +27,8 @@ public class AppController {
 	BankService service;
 	
 		//http://localhost:8085/bank/getAllBank
+	//http://localhost:8085/bank/getAllBank
+
 	@GetMapping("/getAllBank")
 	public List<Bank> findAll(){
 		System.out.println("inside demo application");
