@@ -27,8 +27,8 @@ def notifyBuild(String buildStatus = 'STARTED') {
   // Default values
   def colorName = 'RED'
   def colorCode = '#FF0000'
-  def current_stage = getCurrentStageName()
-  echo "CONGRATULATIONS, you are on stage: $current_stage"
+  def current_stage = getCurrentStage()
+  echo getCurrentStage()
   def subject = "${buildStatus}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'"
   def summary = "${subject} (${env.BUILD_URL})"
   def details = """<p>STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
