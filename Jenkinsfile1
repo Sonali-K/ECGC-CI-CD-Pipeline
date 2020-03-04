@@ -10,7 +10,18 @@ stage('SCM Checkout-Compile')
 
           }
   
-
+ stage('Build Docker Image'){
+            git credentialsId: 'eb857953-4899-4983-928e-450aa25606d5', url: 'http://10.212.0.206:81/Sonali/ECGC-CI-CD-Angular-Spring-Boot-1'
+              sh 'docker build -t sdkanse/springboot-angular.war:1.0SNAPSHOT .'
+                input "Are you sure?"
+               }
+       stage('Push Docker Image'){
+           withCredentials([string(credentialsId: 'DockerHubID', variable: 'DockerHub')]) {
+              // some block
+             sh "docker login -u sdkanse -p ${DockerHub}"
+              }
+              sh 'docker push sdkanse/springboot-angular.war:1.0SNAPSHOT'
+         }
   } catch (e) {
     // If there was an exception thrown, the build failed
     currentBuild.result = "FAILED"
@@ -28,10 +39,10 @@ def notifyBuild(String buildStatus = 'STARTED') {
   // Default values
   def colorName = 'RED'
   def colorCode = '#FF0000'
-    def subject = "${buildStatus}: Job '${JOB_NAME} [${env.BUILD_NUMBER}]'"
+    def subject = "${buildStatus}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'"
   def summary = "${subject} (${env.BUILD_URL})"
-  def details = """<p>STARTED: Job '${JOB_NAME} [${env.BUILD_NUMBER}]':</p>
-    <p>Check console output at &QUOT;<a href='${env.BUILD_URL}'>${JOB_NAME} [${env.BUILD_NUMBER}]</a>&QUOT;</p>"""
+  def details = """<p>STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
+    <p>Check console output at &QUOT;<a href='${env.BUILD_URL}'>${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>&QUOT;</p>"""
 
   // Override default values based on build status
   if (buildStatus == 'STARTED') {
