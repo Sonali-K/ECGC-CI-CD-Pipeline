@@ -10,7 +10,7 @@ node ('worker_node1') {
     }
     currentBuild.result = 'SUCCESS'
   }
-  catch (error) {
+  catch {
     currentBuild.result = 'FAILURE'
   }
   finally {
