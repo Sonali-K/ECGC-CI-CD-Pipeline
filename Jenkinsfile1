@@ -1,22 +1,70 @@
-node ('worker_node1') {
-  try {
-      stage('SCM Checkout-Compile')
+ node {
+
+   try {
+
+     notifyStarted()
+
+ stage('SCM Checkout-Compile')
      {
     sh "mvn -https://github.com/Sonali-K/ECGC-CI-CD-Angular-Spring-Boot-1/blob/master/spring_boot_demo/pom.xml compile"
       echo "Running Stage First"
          input 'Are you sure?'
           }
   
-    }
-    currentBuild.result = 'SUCCESS'
-  }
-  catch {
-    currentBuild.result = 'FAILURE'
-  }
-  finally {
-    mail to: 'sonali.kanse021@gmail.com',
-      subject: "Status of pipeline: ${currentBuild.fullDisplayName}",
-      body: "${env.BUILD_URL} has result ${currentBuild.result}"
-  }
-}
+
+     /* ... existing build steps ... */
+
+ 
+
+     notifySuccessful()
+
+   } catch (e) {
+
+     currentBuild.result = "FAILED"
+
+     notifyFailed()
+
+     throw e
+
+   }
+
+ }
+
+ 
+
+ def notifyStarted() { /* .. */ }
+
+ 
+
+ def notifySuccessful() { /* .. */ }
+
+ 
+
+ def notifyFailed() {
+
+   slackSend (color: '#FF0000', message: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
+
+ 
+
+   hipchatSend (color: 'RED', notify: true,
+
+       message: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})"
+
+     )
+
+ 
+
+   emailext (
+
+       subject: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
+
+       body: """<p>FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
+
+         <p>Check console output at "<a href="${env.BUILD_URL}">${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>"</p>""",
+
+       recipientProviders: [[$class: 'DevelopersRecipientProvider']]
+
+     )
+
+ }
 
