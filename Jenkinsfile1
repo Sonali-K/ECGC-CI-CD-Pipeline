@@ -1,70 +1,57 @@
- node {
+node {
+  try {
+    notifyBuild('STARTED')
 
-   try {
-
-     notifyStarted()
-
- stage('SCM Checkout-Compile')
+stage('SCM Checkout-Compile')
      {
     sh "mvn -https://github.com/Sonali-K/ECGC-CI-CD-Angular-Spring-Boot-1/blob/master/spring_boot_demo/pom.xml compile"
       echo "Running Stage First"
-         input 'Are you sure?'
+
           }
   
 
-     /* ... existing build steps ... */
+  } catch (e) {
+    // If there was an exception thrown, the build failed
+    currentBuild.result = "FAILED"
+    throw e
+  } finally {
+    // Success or failure, always send notifications
+    notifyBuild(currentBuild.result)
+  }
+}
 
- 
+def notifyBuild(String buildStatus = 'STARTED') {
+  // build status of null means successful
+  buildStatus = buildStatus ?: 'SUCCESS'
 
-     notifySuccessful()
+  // Default values
+  def colorName = 'RED'
+  def colorCode = '#FF0000'
+  def subject = "${buildStatus}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'"
+  def summary = "${subject} (${env.BUILD_URL})"
+  def details = """<p>STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
+    <p>Check console output at &QUOT;<a href='${env.BUILD_URL}'>${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>&QUOT;</p>"""
 
-   } catch (e) {
+  // Override default values based on build status
+  if (buildStatus == 'STARTED') {
+    color = 'YELLOW'
+    colorCode = '#FFFF00'
+  } else if (buildStatus == 'SUCCESS') {
+    color = 'GREEN'
+    colorCode = '#00FF00'
+  } else {
+    color = 'RED'
+    colorCode = '#FF0000'
+  }
 
-     currentBuild.result = "FAILED"
+  // Send notifications
+  slackSend (color: colorCode, message: summary)
 
-     notifyFailed()
+  hipchatSend (color: color, notify: true, message: summary)
 
-     throw e
-
-   }
-
- }
-
- 
-
- def notifyStarted() { /* .. */ }
-
- 
-
- def notifySuccessful() { /* .. */ }
-
- 
-
- def notifyFailed() {
-
-   slackSend (color: '#FF0000', message: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
-
- 
-
-   hipchatSend (color: 'RED', notify: true,
-
-       message: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})"
-
-     )
-
- 
-
-   emailext (
-
-       subject: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
-
-       body: """<p>FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
-
-         <p>Check console output at "<a href="${env.BUILD_URL}">${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>"</p>""",
-
-       recipientProviders: [[$class: 'DevelopersRecipientProvider']]
-
-     )
-
- }
-
+  emailext (
+      subject: subject,
+      body: details,
+      recipientProviders: [[$class: 'DevelopersRecipientProvider']]
+    )
+}
