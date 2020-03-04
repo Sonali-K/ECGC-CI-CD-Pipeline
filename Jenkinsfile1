@@ -1,16 +1,22 @@
-pipeline {
-    agent any
-    
-    stages {
-        stage('Ok') {
-            steps {
-                echo "Ok"
-            }
-        }
+node ('worker_node1') {
+  try {
+      stage('SCM Checkout-Compile')
+     {
+    sh "mvn -https://github.com/Sonali-K/ECGC-CI-CD-Angular-Spring-Boot-1/blob/master/spring_boot_demo/pom.xml compile"
+      echo "Running Stage First"
+         input 'Are you sure?'
+          }
+  
     }
-    post {
-        always {
-            emailext body: 'A Test EMail', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Test'
-        }
-    }
+    currentBuild.result = 'SUCCESS'
+  }
+  catch (err) {
+    currentBuild.result = 'FAILURE'
+  }
+  finally {
+    mail to: 'sonali.kanse021@gmail.com',
+      subject: "Status of pipeline: ${currentBuild.fullDisplayName}",
+      body: "${env.BUILD_URL} has result ${currentBuild.result}"
+  }
 }
+
