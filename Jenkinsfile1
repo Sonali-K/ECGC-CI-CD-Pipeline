@@ -45,9 +45,9 @@ def notifyBuild(String buildStatus = 'STARTED') {
   }
 
   // Send notifications
-  Send (color: colorCode, message: summary)
+  //Send (color: colorCode, message: summary)
 
-  Send (color: color, notify: true, message: summary)
+  //Send (color: color, notify: true, message: summary)
 
   emailext (
       to: 'sonali.kanse021@gmail.com',
