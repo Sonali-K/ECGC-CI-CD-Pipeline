@@ -51,8 +51,8 @@ def notifyBuild(String buildStatus = 'STARTED') {
 
   emailext (
       to: 'sonali.kanse021@gmail.com',
-      subject: subject,
-      body: details,
+      subject: "Status of pipeline: ${currentBuild.fullDisplayName}",
+      body: "${env.BUILD_URL} has result ${currentBuild.result}"
       recipientProviders: [[$class: 'DevelopersRecipientProvider']]
     )
 }
