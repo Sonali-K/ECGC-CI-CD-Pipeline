@@ -11,9 +11,9 @@ node {
    
 stage('SonarQube Analysis'){
 
-       withCredentials([string(credentialsId: 'c62b330d-9cc8-4cc7-ade4-faf3d1a33674', variable: 'sonarToken')]) 
+       withCredentials([string(credentialsId: 'SonarQubeUpdatedKey', variable: 'sonarToken')]) 
          {
-           def sonarToken = "sonar.login='b011d57fcf07add059b6c731ed68022160a85b5b'"
+           def sonarToken = "sonar.login='a19987d4eb7d7420487c4772e70b34e4b5e136f6'"
              sh "mvn -https://github.com/Sonali-K/ECGC-CI-CD-Angular-Spring-Boot-1/blob/master/spring_boot_demo/pom.xml sonar:sonar -D  ${sonarUrl}  -D${sonarToken}"
                   echo 'SonarQube Analysis'
                     input "Are you sure?"
