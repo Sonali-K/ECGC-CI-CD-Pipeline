@@ -14,13 +14,13 @@ export class UserRegistrationService {
   }
 
   public getBank(){ 
-    return this.http.get("http://localhost:8086/bank/getallbank");
+    return this.http.get("http://localhost:8099/bank/getallbank");
   }
 
   public getBankById(id){
     console.log("service called");
     let bankdetails=null;
-     bankdetails= this.http.get("http://localhost:8086/bank/findbankbyid/"+id); 
+     bankdetails= this.http.get("http://localhost:8099/bank/findbankbyid/"+id); 
      if(bankdetails==null){
        return "bank not present";
      }else{
