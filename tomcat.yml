@@ -2,7 +2,7 @@
 - hosts: All
   become: true
   tasks:
-    - name: copy war onto tomcat servers
+    - name: copy war onto  Docker Build Context -DockerFile current Directory
       copy:
         dest: /home/cdac_ecgc/Documents/DockerFile
         src: /var/lib/jenkins/workspace/SonarQube-ECGC/spring_boot_demo/target/spring_boot_demo-0.0.1-SNAPSHOT.war
