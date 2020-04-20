@@ -39,7 +39,7 @@ public class TestNG {
 			options.addArguments("--disable-dev-shm-usage"); //should be enabled for Jenkins
 			options.addArguments("--window-size=1920x1080"); //should be enabled for Jenkins
 		
-				driver = new ChromeDriver(options);
+		     driver = new ChromeDriver(options);
 
 			
 		}
