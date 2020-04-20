@@ -4,6 +4,6 @@
   tasks:
     - name: copy war onto tomcat servers
       copy:
-        dest: /home/cdac_ecgc/DockerFile
+        dest: /home/cdac_ecgc/Documents/DockerFile
         src: /var/lib/jenkins/workspace/packageECGC-1/spring_boot_demo/target/spring_boot_demo-0.0.1-SNAPSHOT.war
         
