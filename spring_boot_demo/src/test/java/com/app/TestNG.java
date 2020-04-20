@@ -27,7 +27,7 @@ public class TestNG {
 		String projectPath = System.getProperty("user.dir");
 		PropertiesFile.getProperties();
 		if(browserName.equalsIgnoreCase("chrome")) {
-			System.setProperty("webdriver.chrome.driver","/home/cdac_ecgc/Downloads/ECGC-CICDNew/spring_boot_demo/drivers/geckodriver/chromedriver");
+			System.setProperty("webdriver.chrome.driver","/home/cdac_ecgc/Documents/ECGC-CICDNew/spring_boot_demo/drivers/geckodriver/chromedriver");
 			//driver = new ChromeDriver();
 			HashMap<String, Object> chromePrefs = new HashMap<>();
 			chromePrefs.put("profile.default_content_settings.popups", 0);
