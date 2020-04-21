@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: hrd-emp-be
+    
+server:
+  port: 8083    
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8000/eureka/
+      
+      
+     

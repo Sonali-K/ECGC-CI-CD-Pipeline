@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: apigateway
+    
+server:
+  port: 8081    
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8000/eureka/
+         
+         
+#zuul:
+#  routes:
+#    hrd_emp_fe:
+#      path: /hrd_emp_fe/**
+#      serviceId: hrd_emp_fe
+
+
+hystrix:
+   command:
+      default:
+         execution:
+            iso lation:
+               thread:
+                  timeoutInMilliseconds: 30000
+         
+          
