@@ -1,0 +1,9 @@
+---
+- hosts: All
+  become: true
+  tasks:
+    - name: copy war onto  Docker Build Context -DockerFile current Directory
+      copy:
+        dest: /home/cdac_ecgc/Documents/DockerFile
+        src: /var/lib/jenkins/workspace/SonarQube-Demo/hrd_emp_be/target/hrd_emp_be-0.0.1-SNAPSHOT.jar
+        
