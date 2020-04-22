@@ -1,7 +1,9 @@
+
 FROM tomcat:8.5.16-jre8-alpine
-COPY ./spring_boot_demo.war demo1.war
+COPY ./hrd_emp_be-0.0.1-SNAPSHOT.jar hrd_emp_be-0.0.1-SNAPSHOT.jar
 EXPOSE 8089
-ENTRYPOINT ["java","-jar","demo1.war"]
+ENTRYPOINT ["java","-jar","hrd_emp_be-0.0.1-SNAPSHOT.jar"]
+
 
 
 
