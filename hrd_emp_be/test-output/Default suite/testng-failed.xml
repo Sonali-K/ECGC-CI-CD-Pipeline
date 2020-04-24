@@ -3,14 +3,15 @@
 <suite parallel="none" name="Failed suite [Default suite]">
   <test parallel="none" name="Default test(failed)">
     <classes>
-      <class name="in.ecgc.erp.hrd_emp_be.TestController">
+      <class name="in.ecgc.erp.hrd_emp_be.HrdEmpBeApplicationTests">
         <methods>
+          <include name="setup"/>
+          <include name="contextLoads"/>
+          <include name="viewAllEmployees"/>
           <include name="deleteEmployee"/>
           <include name="addEmployee"/>
-          <include name="setup"/>
-          <include name="viewAllEmployees"/>
         </methods>
-      </class> <!-- in.ecgc.erp.hrd_emp_be.TestController -->
+      </class> <!-- in.ecgc.erp.hrd_emp_be.HrdEmpBeApplicationTests -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

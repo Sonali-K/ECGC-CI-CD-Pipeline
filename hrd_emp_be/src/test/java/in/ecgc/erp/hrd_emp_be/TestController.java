@@ -1,11 +1,10 @@
 package in.ecgc.erp.hrd_emp_be;
 
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeMethod;
 import static in.ecgc.erp.hrd_emp_be.JsonConverter.asJsonString;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-
+import org.junit.Before;
+import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
@@ -24,7 +23,7 @@ public class TestController extends HrdEmpBeApplicationTests {
 	//@Autowired
 	private MockMvc mockMvc;
 
-	@BeforeMethod
+	@Before
 	public void setup() {
 		
 		mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
