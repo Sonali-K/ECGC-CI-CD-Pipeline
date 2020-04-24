@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite parallel="none" name="Failed suite [Default suite]">
-  <test parallel="none" name="Default test(failed)">
+  <test parallel="none" name="Default test(failed)" preserve-order="true">
     <classes>
-      <class name="in.ecgc.erp.hrd_emp_be.HrdEmpBeApplicationTests">
+      <class name="in.ecgc.erp.hrd_emp_be.TestNGController">
         <methods>
-          <include name="setup"/>
-          <include name="contextLoads"/>
-          <include name="viewAllEmployees"/>
           <include name="deleteEmployee"/>
+          <include name="viewAllEmployees"/>
+          <include name="setup"/>
+          <include name="springTestContextAfterTestClass"/>
           <include name="addEmployee"/>
+          <include name="springTestContextAfterTestMethod"/>
         </methods>
-      </class> <!-- in.ecgc.erp.hrd_emp_be.HrdEmpBeApplicationTests -->
+      </class> <!-- in.ecgc.erp.hrd_emp_be.TestNGController -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
