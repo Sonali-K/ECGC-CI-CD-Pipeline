@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results total="3" passed="0" failed="0" skipped="3">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2020-04-23T13:44:23Z" name="Default suite" finished-at="2020-04-23T13:44:23Z" duration-ms="28">
+    <groups>
+    </groups>
+    <test started-at="2020-04-23T13:44:23Z" name="Default test" finished-at="2020-04-23T13:44:23Z" duration-ms="28">
+      <class name="in.ecgc.erp.hrd_emp_be.TestController">
+        <test-method is-config="true" signature="setup()[pri:0, instance:in.ecgc.erp.hrd_emp_be.TestController@402c4085]" started-at="2020-04-23T19:14:23Z" name="setup" finished-at="2020-04-23T19:14:23Z" duration-ms="0" status="FAIL">
+          <exception class="java.lang.IllegalArgumentException">
+            <message>
+              <![CDATA[WebApplicationContext is required]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.IllegalArgumentException: WebApplicationContext is required
+	at org.springframework.util.Assert.notNull(Assert.java:198)
+	at org.springframework.test.web.servlet.setup.DefaultMockMvcBuilder.<init>(DefaultMockMvcBuilder.java:52)
+	at org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppContextSetup(MockMvcBuilders.java:51)
+	at in.ecgc.erp.hrd_emp_be.TestController.setup(TestController.java:30)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:84)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:564)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:213)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:653)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.IllegalArgumentException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="addEmployee()[pri:0, instance:in.ecgc.erp.hrd_emp_be.TestController@402c4085]" started-at="2020-04-23T19:14:23Z" name="addEmployee" finished-at="2020-04-23T19:14:23Z" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addEmployee -->
+        <test-method is-config="true" signature="setup()[pri:0, instance:in.ecgc.erp.hrd_emp_be.TestController@402c4085]" started-at="2020-04-23T19:14:23Z" name="setup" finished-at="2020-04-23T19:14:23Z" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="deleteEmployee()[pri:0, instance:in.ecgc.erp.hrd_emp_be.TestController@402c4085]" started-at="2020-04-23T19:14:23Z" name="deleteEmployee" finished-at="2020-04-23T19:14:23Z" duration-ms="1" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteEmployee -->
+        <test-method is-config="true" signature="setup()[pri:0, instance:in.ecgc.erp.hrd_emp_be.TestController@402c4085]" started-at="2020-04-23T19:14:23Z" name="setup" finished-at="2020-04-23T19:14:23Z" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="viewAllEmployees()[pri:0, instance:in.ecgc.erp.hrd_emp_be.TestController@402c4085]" started-at="2020-04-23T19:14:23Z" name="viewAllEmployees" finished-at="2020-04-23T19:14:23Z" duration-ms="1" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- viewAllEmployees -->
+      </class> <!-- in.ecgc.erp.hrd_emp_be.TestController -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

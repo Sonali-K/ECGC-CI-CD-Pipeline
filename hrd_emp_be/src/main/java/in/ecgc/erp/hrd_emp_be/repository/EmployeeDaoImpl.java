@@ -110,7 +110,9 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	}
 	
 	/* Method for deleting employee with EMP_ID */
-	public int deleteEmployee(String emp_id) {
+	public int deleteEmployee(Integer emp_id) {
+		
+		System.out.println(EmployeeQueries.DELETE_EMPLOYEE+" "+emp_id+"\n\n\n\n");
 		int result=jdbcOperations.update(EmployeeQueries.DELETE_EMPLOYEE,emp_id);
 		return result;
 	}

@@ -18,5 +18,5 @@ public interface EmployeeDao {
 	public List<Employee> allEmployeeData();
 	
 	/* Method for delete particular Employee By Emp_ID */
-	public int deleteEmployee(String emp_id);
+	public int deleteEmployee(Integer emp_id);
 }

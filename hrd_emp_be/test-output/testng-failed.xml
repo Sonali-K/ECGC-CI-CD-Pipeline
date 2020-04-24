@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite parallel="none" name="Failed suite [Default suite]">
+  <test parallel="none" name="Default test(failed)">
+    <classes>
+      <class name="in.ecgc.erp.hrd_emp_be.TestController">
+        <methods>
+          <include name="deleteEmployee"/>
+          <include name="addEmployee"/>
+          <include name="setup"/>
+          <include name="viewAllEmployees"/>
+        </methods>
+      </class> <!-- in.ecgc.erp.hrd_emp_be.TestController -->
+    </classes>
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

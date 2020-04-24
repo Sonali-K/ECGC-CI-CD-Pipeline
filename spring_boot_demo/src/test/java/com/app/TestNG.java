@@ -40,6 +40,7 @@ public class TestNG {
 			options.addArguments("--window-size=1920x1080"); //should be enabled for Jenkins
 			
 		     driver = new ChromeDriver(options);
+			 //driver.findElement(By.name("q")).sendKeys("Automation Step by Step");
 
 			
 		}
@@ -60,7 +61,7 @@ public class TestNG {
 		
 		//click on search button
 		//driver.findElement(By.name("btnK")).click();
-		//driver.findElement(By.id("1"));
+		driver.findElement(By.id("1"));
 
 		//driver.findElement(By.name("btnK")).sendKeys(Keys.RETURN);
 		

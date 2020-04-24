@@ -115,7 +115,7 @@ public class HrdEmpFeController {
 	 * @return integer
 	 * */
 	@GetMapping(value = "/deleteEmployee/{id}")
-	public String deleteEmployeeData(@PathVariable("id") String empId,Locale locale,Model model) {
+	public String deleteEmployeeData(@PathVariable("id") Integer empId,Locale locale,Model model) {
 		LOGGER.info("--Delete Employee Credentail--");
 		LOGGER.info("--Deleting Employee Data --",empId);
 		

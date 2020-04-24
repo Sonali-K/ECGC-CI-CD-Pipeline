@@ -39,5 +39,5 @@ public interface EmployeeService {
 	   * @param emp_id  Employee empId
 	   * @return result 1 for true 0 for false
 	*/
-	public int deleteEmployee(String emp_id);
+	public int deleteEmployee(Integer emp_id);
 }

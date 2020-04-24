@@ -31,5 +31,5 @@ public interface EmployeeClient {
 	
 	//Delete Employee Data : through BE Service
 	@GetMapping("/deleteEmployee/{id}")
-	public int deleteEmployee(@PathVariable("id") String id);
+	public int deleteEmployee(@PathVariable("id") Integer empId);
 }

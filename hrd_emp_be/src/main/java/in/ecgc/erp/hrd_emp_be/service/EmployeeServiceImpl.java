@@ -52,7 +52,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Override
-	public int deleteEmployee(String emp_id) {
+	public int deleteEmployee(Integer emp_id) {
 		int result =getDao().deleteEmployee(emp_id);
 		return result;
 	}

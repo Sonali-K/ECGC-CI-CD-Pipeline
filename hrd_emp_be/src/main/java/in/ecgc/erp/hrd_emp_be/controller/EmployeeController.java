@@ -95,7 +95,7 @@ public class EmployeeController {
     @ApiOperation(value = "Delete an employee")								//Swagger Annotation
 	@GetMapping("/deleteEmployee/{id}")
 	public int deleteEmployee(@ApiParam(value = "Employee Id from which employee object will delete from database table", required = true)
-	                          @PathVariable("id") String empId){
+	                          @PathVariable("id") Integer empId){
 		LOGGER.info("--Inside Delete Employee--");
 		LOGGER.info("--Deleting Employee Data--");
 		int result=empService.deleteEmployee(empId);
